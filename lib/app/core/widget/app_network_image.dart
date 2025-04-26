@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:newspaper_app_flutter/app/core/widget/shimmer/shimmer_base.dart';
 
+import '../constraints/app_assets.dart';
 import '../constraints/app_constraints.dart';
 
 class AppNetworkImageProvider extends StatelessWidget {
@@ -52,7 +53,7 @@ class AppNetworkImageProvider extends StatelessWidget {
             width: width,
             child: Padding(
               padding: const EdgeInsets.all(8),
-              child: Image.asset(""),
+              child: Image.asset(noImageFound),
             ),
           );
         },

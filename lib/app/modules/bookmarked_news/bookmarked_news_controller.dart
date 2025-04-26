@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
-  //TODO: Implement HomeController
+class BookmarkedNewsController extends GetxController {
+  //TODO: Implement BookmarkedNewsController
 
   final count = 0.obs;
 

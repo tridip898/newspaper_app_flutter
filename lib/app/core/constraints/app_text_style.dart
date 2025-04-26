@@ -27,88 +27,46 @@ TextStyle textStyle({
   bool needUnderline = false,
   bool needCross = false,
 }) {
-  if (!isSuzukiProBold && !isSuzukiProHeadline && !isSuzukiProRegular) {
-    return GoogleFonts.roboto(
-      fontSize: fontSize.sp,
-      letterSpacing: letterSpacing,
-      color: isPrimaryColor
-          ? AppColors.primaryColor
-          : isWhiteColor
-              ? AppColors.white
-              : color,
-      fontWeight: isWeight300
-          ? FontWeight.w300
-          : isWeight400
-              ? FontWeight.w400
-              : isWeight500
-                  ? FontWeight.w500
-                  : isWeight600
-                      ? FontWeight.w600
-                      : isWeight700
-                          ? FontWeight.w700
-                          : isWeight800
-                              ? FontWeight.w800
-                              : fontWeight,
-      height: lineHeight,
-      shadows: needShadow
-          ? [
-              const Shadow(
-                color: Colors.grey,
-                offset: Offset(0, 0),
-                blurRadius: 15,
-              ),
-            ]
-          : null,
-      decoration: needUnderline
-          ? TextDecoration.underline
-          : needCross
-              ? TextDecoration.lineThrough
-              : null,
-      decorationColor: underlineColor,
-      decorationStyle: TextDecorationStyle.solid,
-    );
-  } else {
-    return TextStyle(
-      fontSize: fontSize.sp,
-      letterSpacing: letterSpacing,
-      fontFamily: isSuzukiProBold
-          ? "Suzuki Pro Bold"
-          : isSuzukiProRegular
-              ? "Suzuki Pro Regular"
-              : "Suzuki Pro Headline",
-      color: isPrimaryColor
-          ? AppColors.primaryColor
-          : isWhiteColor
-              ? AppColors.white
-              : color,
-      fontWeight: isWeight300
-          ? FontWeight.w300
-          : isWeight400
-              ? FontWeight.w400
-              : isWeight500
-                  ? FontWeight.w500
-                  : isWeight600
-                      ? FontWeight.w600
-                      : isWeight700
-                          ? FontWeight.w700
-                          : isWeight800
-                              ? FontWeight.w800
-                              : fontWeight,
-      height: lineHeight,
-      shadows: needShadow
-          ? [
-              const Shadow(
-                color: Colors.grey,
-                offset: Offset(0, 0),
-                blurRadius: 15,
-              ),
-            ]
-          : null,
-      decoration: needUnderline ? TextDecoration.underline : null,
-      decorationColor: underlineColor,
-      decorationStyle: TextDecorationStyle.solid,
-    );
-  }
+  return TextStyle(
+    fontSize: fontSize.sp,
+    letterSpacing: letterSpacing,
+    fontFamily: isSuzukiProBold
+        ? "Suzuki Pro Bold"
+        : isSuzukiProRegular
+            ? "Suzuki Pro Regular"
+            : "Suzuki Pro Headline",
+    color: isPrimaryColor
+        ? AppColors.primaryColor
+        : isWhiteColor
+            ? AppColors.white
+            : color,
+    fontWeight: isWeight300
+        ? FontWeight.w300
+        : isWeight400
+            ? FontWeight.w400
+            : isWeight500
+                ? FontWeight.w500
+                : isWeight600
+                    ? FontWeight.w600
+                    : isWeight700
+                        ? FontWeight.w700
+                        : isWeight800
+                            ? FontWeight.w800
+                            : fontWeight,
+    height: lineHeight,
+    shadows: needShadow
+        ? [
+            const Shadow(
+              color: Colors.grey,
+              offset: Offset(0, 0),
+              blurRadius: 15,
+            ),
+          ]
+        : null,
+    decoration: needUnderline ? TextDecoration.underline : null,
+    decorationColor: underlineColor,
+    decorationStyle: TextDecorationStyle.solid,
+  );
 }
 
 final hintStyle = GoogleFonts.roboto(

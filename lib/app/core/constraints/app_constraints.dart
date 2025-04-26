@@ -24,17 +24,8 @@ mainBorderRadius(double value) => BorderRadius.circular(value.r);
 final imageMaxWidth = Platform.isIOS ? 1024.0 : null;
 final imageMaxHeight = Platform.isIOS ? 1920.0 : null;
 
-const String free = "free";
-const String paid = "paid";
-const String regText = "reg";
-const String emailVerification = "email_Verification";
-const String forgotText = "forgot";
-const String updateProfile = "update_profile";
-const String personalInfo = "personal_info";
-const String drivingLicense = "driving_license";
-const String brtaReg = "brta_reg";
-const String insurancePaper = "insurance_paper";
-const String otherDoc = "other_doc";
+const String apiKey = "5c936c8d8a6a4b2eb895919c53b4b7f6";
+const String okStatus = "ok";
 
 const Transition transition = Transition.fadeIn;
 final Widget gapW3 = appWidget.gapW(3);

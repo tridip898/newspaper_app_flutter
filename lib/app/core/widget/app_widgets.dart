@@ -4,12 +4,9 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../constraints/app_assets.dart';
 import '../constraints/app_colors.dart';
-import '../constraints/app_constraints.dart';
 import '../constraints/app_text_style.dart';
 import '../utils/helper/app_helper.dart';
-import 'dynamic_rich_text.dart';
 
 class AppWidgets {
   final bool needScreenUtil = true;
@@ -193,6 +190,7 @@ class AppWidgets {
     return false;
   }
 
+/*
   Widget noDataFound({
     String? title,
     String? subTitle,
@@ -253,6 +251,7 @@ class AppWidgets {
       ),
     );
   }
+*/
 
 // Widget noData({msg = "No data found", color = Colors.redAccent}) {
 //   return Center(
@@ -270,7 +269,7 @@ class AppWidgets {
 //   );
 // }
 
-  showCongratulateDialog() {
+  /*showCongratulateDialog() {
     return showDialog(
         barrierDismissible: false,
         context: Get.context!,
@@ -344,7 +343,7 @@ class AppWidgets {
             ),
           );
         });
-  }
+  }*/
 
   Future<DateTime?> datePickerMain(
       {bool canPickFutureDate = true,
@@ -401,6 +400,8 @@ class AppWidgets {
     return null;
   }
 
+/*
+
   Widget addNewBikeButton({String? title, Function()? onTap}) {
     return Material(
       borderRadius: mainBorderRadius(6),
@@ -434,8 +435,9 @@ class AppWidgets {
       ),
     );
   }
+*/
 
-  errorDialog() {
+/*  errorDialog() {
     return showDialog(
         context: Get.context!,
         barrierDismissible: false,
@@ -488,7 +490,7 @@ class AppWidgets {
             ),
           );
         });
-  }
+  }*/
 
   showComingSoon() {
     final snackBar = SnackBar(
