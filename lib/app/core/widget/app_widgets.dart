@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
+import 'package:newspaper_app_flutter/generated/assets.dart';
 
 import '../constraints/app_colors.dart';
 import '../constraints/app_text_style.dart';
@@ -188,6 +190,15 @@ class AppWidgets {
     }
 
     return false;
+  }
+
+  noDataFoundMsg() {
+    return Center(
+      child: Lottie.asset(
+        Assets.noDataFound,
+        width: Get.width * .7,
+      ),
+    );
   }
 
 /*

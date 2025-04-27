@@ -2,5 +2,6 @@
 class Assets {
   Assets._();
 
+  static const String noDataFound = 'assets/json/no_data_found.json';
   static const String noImageFound = 'assets/jpg/no_image_found.jpg';
 }
