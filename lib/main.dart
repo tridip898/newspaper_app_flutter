@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,12 +7,15 @@ import 'package:get/get.dart';
 import 'app/core/bindings/initial_binding.dart';
 import 'app/core/constraints/app_constraints.dart';
 import 'app/routes/app_pages.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   appHelper.setStatusBarBlack();
   await ScreenUtil.ensureScreenSize();
-
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     ScreenUtilInit(
       designSize: const Size(375, 812),

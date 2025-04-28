@@ -1,0 +1,22 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "newspaper-app-1e1b2",
+          "appId": "1:1030645006527:android:086cd048d08b5d1836460a",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "newspaper-app-1e1b2",
+          "configurations": {
+            "android": "1:1030645006527:android:086cd048d08b5d1836460a",
+            "ios": "1:1030645006527:ios:7df6bd8e958d7a9136460a"
+          }
+        }
+      }
+    }
+  }
+}

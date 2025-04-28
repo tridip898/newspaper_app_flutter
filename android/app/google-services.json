@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1030645006527",
+    "project_id": "newspaper-app-1e1b2",
+    "storage_bucket": "newspaper-app-1e1b2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030645006527:android:086cd048d08b5d1836460a",
+        "android_client_info": {
+          "package_name": "com.newpaperapp.newspaper_app_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsxzsuND6qEV_DQF509uZghPu5i0BX_A8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
