@@ -6,10 +6,11 @@ import 'package:newspaper_app_flutter/app/core/constraints/app_colors.dart';
 import 'package:newspaper_app_flutter/app/core/constraints/app_constraints.dart';
 import 'package:newspaper_app_flutter/app/core/constraints/app_text_style.dart';
 import 'package:newspaper_app_flutter/app/core/widget/app_network_image.dart';
+import 'package:newspaper_app_flutter/app/core/widget/main_nav_appbar.dart';
+import 'package:newspaper_app_flutter/app/core/widget/shimmer/shimmer_widgets.dart';
 import 'package:newspaper_app_flutter/app/data/pojo/news_api_response_model.dart';
 import 'package:newspaper_app_flutter/app/routes/app_pages.dart';
 
-import '../../data/model/bookmark_service.dart';
 import 'home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -18,39 +19,11 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Newspaper",
-          style: text16Style(),
-        ),
-        elevation: 0,
-        backgroundColor: Colors.white,
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 12),
-            child: Material(
-              color: Colors.transparent,
-              shape: const CircleBorder(),
-              clipBehavior: Clip.hardEdge,
-              child: InkWell(
-                highlightColor: AppColors.white.withValues(alpha: 0.2),
-                onTap: () {
-                  Get.toNamed(Routes.BOOKMARKED_NEWS);
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Ink(
-                    child: Icon(
-                      Icons.bookmark_border_rounded,
-                      color: Color(0xff475467),
-                      size: 20.w,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          )
-        ],
+      appBar: MainNavAppBar(
+        title: "Newspaper",
+        bookmarkPressed: () {
+          Get.toNamed(Routes.BOOKMARKED_NEWS);
+        },
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -58,7 +31,7 @@ class HomeView extends GetView<HomeController> {
           children: [
             Obx(() {
               if (!controller.isDataLoaded.value) {
-                return Container();
+                return ShimmerWidgets().newsListShimmer();
               }
               if (controller.newsPaperData.isEmpty) {
                 return Expanded(
@@ -123,16 +96,18 @@ class HomeView extends GetView<HomeController> {
                       borderRadius: BorderRadius.circular(100),
                     ),
                     child: InkWell(
-                      onTap: () async {
-                        await BookmarkDatabase.instance
-                            .insertBookmark(newspaperData);
-                        Get.snackbar('Success', 'Article bookmarked!');
-                      },
+                      onTap: controller.bookmarks.contains(newspaperData)
+                          ? null
+                          : () {
+                              controller.bookmarkNews(newspaperData);
+                            },
                       borderRadius: BorderRadius.circular(100),
                       child: Padding(
                         padding: mainPadding(6, 6),
                         child: Icon(
-                          Icons.bookmark_border_rounded,
+                          controller.bookmarks.contains(newspaperData)
+                              ? Icons.bookmark
+                              : Icons.bookmark_border_rounded,
                           size: 20.w,
                           color: AppColors.secondaryColor,
                         ),

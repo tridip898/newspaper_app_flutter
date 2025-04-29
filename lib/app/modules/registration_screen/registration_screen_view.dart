@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:newspaper_app_flutter/app/core/constraints/app_text_style.dart';
 
 import '../../core/constraints/app_colors.dart';
 import '../../core/constraints/app_constraints.dart';
@@ -15,11 +16,11 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.backgroundColor,
       body: Stack(
         children: [
           Positioned(
-            top: 0.035.sh,
+            top: 0.13.sh,
             left: 0.02.h,
             right: 0.02.h,
             child: Column(
@@ -27,7 +28,10 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                 gapH(32),
                 Align(
                   alignment: Alignment.center,
-                  child: Text("SIGN UP"),
+                  child: Text(
+                    "SIGN UP",
+                    style: text20Style(),
+                  ),
                 ),
                 gapH32,
               ],
@@ -67,8 +71,7 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                                 controller: controller.nameController,
                                 focusNode: controller.nameFocus,
                                 nextFocus: controller.emailFocus,
-                                errorMsg: "Please enter your first name",
-                                needNamePrefix: true,
+                                errorMsg: "Please enter your name",
                               ),
                               AppEditText(
                                 title: "Email",
@@ -76,9 +79,8 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                                 controller: controller.emailController,
                                 focusNode: controller.emailFocus,
                                 nextFocus: controller.passwordFocusNode,
-                                isMobileNumber: true,
-                                errorMsg: "Please enter mobile number",
-                                needMobileCountryCode: true,
+                                isEmail: true,
+                                errorMsg: "Please enter your email",
                               ),
                               AppEditText(
                                 title: "Password",
@@ -87,7 +89,6 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                                 needToShowEye: true,
                                 errorMsg: "Enter your password",
                                 minLength: 6,
-                                needPasswordPrefix: true,
                                 isPassword:
                                     !controller.needToShowPassword.value,
                                 eyeClick: controller.setPasswordShow,
@@ -100,7 +101,6 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                                     controller.confirmPasswordController,
                                 hintText: "Confirm Password",
                                 needToShowEye: true,
-                                needPasswordPrefix: true,
                                 errorMsg: "Confirm your password",
                                 minLength: 6,
                                 isPassword:

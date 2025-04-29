@@ -2,12 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:newspaper_app_flutter/app/core/constraints/app_constraints.dart';
-import 'package:newspaper_app_flutter/app/core/state/global_state.dart';
 import 'package:newspaper_app_flutter/app/routes/app_pages.dart';
 
 class AuthController extends GetxController {
   static AuthController instance = Get.find();
-  final globalState = Get.find<GlobalState>();
+  Rx<Map<String, dynamic>> userData = Rx<Map<String, dynamic>>({});
   final FirebaseAuth auth = FirebaseAuth.instance;
   final Rxn<User> _user = Rxn<User>();
 
@@ -45,6 +44,7 @@ class AuthController extends GetxController {
       appWidget.showSimpleToast("Account created successfully",
           isSuccess: true, duration: 1);
     } catch (e) {
+      logger.i(e.toString());
       appWidget.showSimpleToast(e.toString());
     }
   }
@@ -72,7 +72,7 @@ class AuthController extends GetxController {
           .doc(auth.currentUser!.uid)
           .get();
       if (userDoc.exists) {
-        globalState.userData.value = userDoc.data()!;
+        userData.value = userDoc.data()!;
       }
     }
   }

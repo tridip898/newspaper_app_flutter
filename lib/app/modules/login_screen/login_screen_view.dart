@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:newspaper_app_flutter/app/core/constraints/app_assets.dart';
+import 'package:newspaper_app_flutter/app/core/constraints/app_text_style.dart';
 
 import '../../core/constraints/app_colors.dart';
 import '../../core/constraints/app_constraints.dart';
@@ -15,10 +17,29 @@ class LoginScreenView extends GetView<LoginScreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: Column(
           children: [
-            gapH30,
+            gapH(48),
+            Align(
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  Image.asset(
+                    newsPaperLogo,
+                    height: 60,
+                    width: 60,
+                  ),
+                  gapH12,
+                  Text(
+                    "SIGN IN",
+                    style: text18Style(),
+                  ),
+                ],
+              ),
+            ),
+            gapH32,
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -43,23 +64,21 @@ class LoginScreenView extends GetView<LoginScreenController> {
                       child: Column(
                         children: [
                           AppEditText(
-                            title: "",
+                            title: "Email",
                             hintText: "Email",
                             controller: controller.emailController,
                             focusNode: controller.emailFocus,
                             nextFocus: controller.passwordFocus,
-                            isMobileNumber: true,
-                            errorMsg: "Please enter mobile number",
-                            needMobilePrefix: true,
+                            isEmail: true,
+                            errorMsg: "Please enter your email",
                           ),
                           gapH8,
                           AppEditText(
-                            title: "",
+                            title: "Password",
                             hintText: "Password",
                             controller: controller.passwordController,
                             focusNode: controller.passwordFocus,
                             errorMsg: "Please enter your password",
-                            needPasswordPrefix: true,
                             minLength: 6,
                             isPassword: !controller.isNeedToShowPassword.value,
                             needToShowEye: true,
